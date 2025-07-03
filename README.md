@@ -20,7 +20,7 @@ Su objetivo es construir una herramienta funcional, profesional y mantenible, pa
 |------|-------------|---------|
 | Fase 1 | Lógica completa en un solo archivo, con persistencia en JSON | `/v1_linea_a_linea` |
 | Fase 2 | Separación por funciones con persistencia | `/v2_funciones` |
-| Fase 3 | Estructura con clases y archivos | *(en construcción)* |
+| Fase 3 | Versión con clases (OOP), más modular y escalable | `/v3_clases` |
 
 ---
 
@@ -31,6 +31,9 @@ cd v1_linea_a_linea
 python habitos.py
 
 cd v2_funciones
+python habitos.py
+
+cd v3_clases
 python habitos.py
 
 ---
