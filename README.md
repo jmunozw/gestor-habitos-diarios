@@ -19,7 +19,7 @@ Su objetivo es construir una herramienta funcional, profesional y mantenible, pa
 | Fase | Descripción | Carpeta |
 |------|-------------|---------|
 | Fase 1 | Lógica completa en un solo archivo, con persistencia en JSON | `/v1_linea_a_linea` |
-| Fase 2 | Separación por funciones | *(en construcción)* |
+| Fase 2 | Separación por funciones con persistencia | `/v2_funciones` |
 | Fase 3 | Estructura con clases y archivos | *(en construcción)* |
 
 ---
@@ -30,10 +30,13 @@ Su objetivo es construir una herramienta funcional, profesional y mantenible, pa
 cd v1_linea_a_linea
 python habitos.py
 
+cd v2_funciones
+python habitos.py
+
 ---
 
 ## 💻 Autor
 
 Este proyecto forma parte del portafolio de [@jmunozw](https://github.com/jmunozw).
 
-Desarrollado como parte de mi ruta hacia Dev profesional con ChatGPT y MoureDev como mentores técnicos.
+Desarrollado como parte de mi ruta hacia Dev profesional con ChatGPT como mentor técnico y la guía práctica de MoureDev.
