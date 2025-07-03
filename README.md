@@ -35,6 +35,7 @@ python habitos.py
 
 cd v3_clases
 python habitos.py
+```
 
 ---
 
