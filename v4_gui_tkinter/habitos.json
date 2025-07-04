@@ -1,0 +1,18 @@
+[
+    {
+        "nombre": "Levantarse",
+        "completado": true
+    },
+    {
+        "nombre": "Entrenar",
+        "completado": false
+    },
+    {
+        "nombre": "Desayunar",
+        "completado": false
+    },
+    {
+        "nombre": "Programar",
+        "completado": false
+    }
+]
