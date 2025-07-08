@@ -1,0 +1,38 @@
+[
+    {
+        "nombre": "Despertar",
+        "completado": true
+    },
+    {
+        "nombre": "Entrenar",
+        "completado": true
+    },
+    {
+        "nombre": "Desayunar",
+        "completado": true
+    },
+    {
+        "nombre": "Programar",
+        "completado": true
+    },
+    {
+        "nombre": "Dormir",
+        "completado": true
+    },
+    {
+        "nombre": "Merendar",
+        "completado": true
+    },
+    {
+        "nombre": "Marco",
+        "completado": true
+    },
+    {
+        "nombre": "Hola",
+        "completado": true
+    },
+    {
+        "nombre": "Marcar",
+        "completado": true
+    }
+]
