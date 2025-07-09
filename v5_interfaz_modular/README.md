@@ -13,7 +13,7 @@ En esta fase del proyecto **Gestor de Hábitos Diarios**, se mejora la estructur
 
 ---
 
-## ✅ Mejoras implementadas
+## 🧩 Mejoras implementadas
 
 - Clase `InterfazHabitos` dividida en métodos:
   - `crear_zona_entrada()`
@@ -26,7 +26,12 @@ En esta fase del proyecto **Gestor de Hábitos Diarios**, se mejora la estructur
 - Etiqueta de mensaje dinámico (`Label`) con colores:
   - Verde para éxito (`ok`)
   - Rojo para error (`error`)
+- Scroll automático al final del `Listbox` al añadir un nuevo hábito.
+- Selección automática del nuevo hábito tras añadirlo.
+- Botón "Completar hábito" se desactiva automáticamente tras completarlo.
+- Prevención de errores si se pulsa "Completar hábito" sin selección previa.
 - Código limpio, visualmente estructurado y reutilizable.
+
 
 ---
 

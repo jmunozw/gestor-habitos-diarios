@@ -24,15 +24,47 @@
         "completado": true
     },
     {
-        "nombre": "Marco",
+        "nombre": "Jugar",
         "completado": true
     },
     {
-        "nombre": "Hola",
+        "nombre": "Manolo",
         "completado": true
     },
     {
-        "nombre": "Marcar",
+        "nombre": "Meneo",
         "completado": true
+    },
+    {
+        "nombre": "Manola",
+        "completado": true
+    },
+    {
+        "nombre": "Io",
+        "completado": true
+    },
+    {
+        "nombre": "lplp",
+        "completado": true
+    },
+    {
+        "nombre": "jjj",
+        "completado": true
+    },
+    {
+        "nombre": "hjjhjh",
+        "completado": true
+    },
+    {
+        "nombre": "kk",
+        "completado": true
+    },
+    {
+        "nombre": "lll",
+        "completado": false
+    },
+    {
+        "nombre": "plp",
+        "completado": false
     }
 ]

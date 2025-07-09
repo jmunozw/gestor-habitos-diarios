@@ -67,6 +67,9 @@ class InterfazHabitos:
         if estado == "ok":
             self.entry.delete(0, tk.END)
             self.actualizar_ListBox()
+            self.listbox.see(tk.END) #Desplaza scrool al final
+            self.listbox.selection_set(tk.END) #Se selecciona el nuevo hábito insertado
+            self.habilitar_btnCompletar() #Habilitamos el botón por si se desea completar el hábito
     
     def mostrar_mensaje(self, mensaje, estado):
         color = "green" if estado == "ok" else "red"
@@ -76,6 +79,8 @@ class InterfazHabitos:
     def actualizar_ListBox(self):
         self.listbox.delete(0, tk.END)
         self.listar_ListBox()
+        self.listbox.yview_moveto(1) #Scroll autómatico, desplaza al final (1)
+        
 
     def listar_ListBox(self):
         for habito in self.gestor.habitos:
@@ -86,12 +91,16 @@ class InterfazHabitos:
     def completar_habito_gui(self):
         #Obtenemos el indice del habito seleccionado en el listbox
         indice = self.listbox.curselection() # Formato tupla: (indice,)
+        if not indice:
+            return #Evita error si no hay selecciónç
+        
         mensaje, estado = self.gestor.completar_habito(indice[0])
-
         self.mostrar_mensaje(mensaje, estado)
 
         if estado == "ok":
             self.actualizar_ListBox()
+            self.listbox.selection_clear(0,tk.END) #Quitar selección del listbox
+            self.btnCompletar.config(state= tk.DISABLED) #Deshabilitar botón "Completar hábito"
     
     def habilitar_btnCompletar(self):
         if self.listbox.curselection():
