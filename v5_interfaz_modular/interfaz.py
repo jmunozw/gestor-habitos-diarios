@@ -34,14 +34,17 @@ class InterfazHabitos:
         self.listbox = tk.Listbox(self.root, width=40, height=10)
         self.listbox.pack(pady=10)
 
-        # Vinculando evento listbox y boton
-        self.listbox.bind("<<ListboxSelect>>", lambda event: self.habilitar_btnCompletar())
+        # Vinculando evento listbox y los botones completar y eliminar
+        self.listbox.bind("<<ListboxSelect>>", lambda event: self.habilitar_botones())
 
 
     def crear_zona_botones(self):
         # Creando el botón Completar hábito
         self.btnCompletar = tk.Button(self.root,text="Completar hábito", state = tk.DISABLED, command= self.completar_habito_gui)
         self.btnCompletar.pack(side=tk.TOP,pady=5)
+
+        self.btnEliminar = tk.Button(self.root, text="Eliminar hábito", state= tk.DISABLED, command= self.eliminar_habito_gui)
+        self.btnEliminar.pack(side= tk.TOP, pady=5)
 
         #Creando label de mensaje
         self.lblMensaje = tk.Label(self.root, text= "", fg="green")
@@ -102,9 +105,28 @@ class InterfazHabitos:
             self.listbox.selection_clear(0,tk.END) #Quitar selección del listbox
             self.btnCompletar.config(state= tk.DISABLED) #Deshabilitar botón "Completar hábito"
     
-    def habilitar_btnCompletar(self):
+    def eliminar_habito_gui(self):
+        #Obtenemos el indice del hábito seleccionado a eliminar
+        indice = self.listbox.curselection() #Format tupla: (indice,)
+        if not indice:
+            return
+        
+        mensaje, estado = self.gestor.eliminar_habito(indice[0])
+        self.mostrar_mensaje(mensaje,estado)
+
+        if  estado == "ok":
+            self.actualizar_ListBox()
+            self.listbox.select_clear(0,tk.END)
+            self.habilitar_botones()
+
+        
+    
+    def habilitar_botones(self):
         if self.listbox.curselection():
             self.btnCompletar.config(state= tk.NORMAL)
+            self.btnEliminar.config(state= tk.NORMAL)
         else:
             self.btnCompletar.config(state= tk.DISABLED)
+            self.btnEliminar.config(state= tk.DISABLED)
+    
 

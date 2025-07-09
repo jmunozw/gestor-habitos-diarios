@@ -31,6 +31,12 @@ En esta fase del proyecto **Gestor de Hábitos Diarios**, se mejora la estructur
 - Botón "Completar hábito" se desactiva automáticamente tras completarlo.
 - Prevención de errores si se pulsa "Completar hábito" sin selección previa.
 - Código limpio, visualmente estructurado y reutilizable.
+- Botón "Eliminar hábito" añadido junto a los botones de acción.
+- Habilitación automática del botón al seleccionar un hábito.
+- Validación segura al intentar eliminar sin selección previa.
+- Mensaje de confirmación tras eliminación exitosa.
+- Actualización automática del listado tras eliminar un hábito.
+
 
 
 ---
