@@ -12,19 +12,15 @@
         "completado": true
     },
     {
-        "nombre": "Programar",
+        "nombre": "Merendar",
+        "completado": false
+    },
+    {
+        "nombre": "Jugar",
         "completado": true
     },
     {
         "nombre": "Dormir",
-        "completado": true
-    },
-    {
-        "nombre": "Merendar",
-        "completado": true
-    },
-    {
-        "nombre": "Jugar",
         "completado": true
     }
 ]

@@ -43,8 +43,14 @@ class InterfazHabitos:
         self.btnCompletar = tk.Button(self.root,text="Completar hábito", state = tk.DISABLED, command= self.completar_habito_gui)
         self.btnCompletar.pack(side=tk.TOP,pady=5)
 
+        #Creando el botón Eliminar hábito
         self.btnEliminar = tk.Button(self.root, text="Eliminar hábito", state= tk.DISABLED, command= self.eliminar_habito_gui)
         self.btnEliminar.pack(side= tk.TOP, pady=5)
+
+        #Creando el botón Deshacer completado
+        self.btnDeshacer = tk.Button(self.root, text="Deshacer completado", state=tk.DISABLED, command= self.deshacer_completado_gui)
+        self.btnDeshacer.pack(side= tk.TOP, pady=5)
+
 
         #Creando label de mensaje
         self.lblMensaje = tk.Label(self.root, text= "", fg="green")
@@ -72,7 +78,7 @@ class InterfazHabitos:
             self.actualizar_ListBox()
             self.listbox.see(tk.END) #Desplaza scrool al final
             self.listbox.selection_set(tk.END) #Se selecciona el nuevo hábito insertado
-            self.habilitar_btnCompletar() #Habilitamos el botón por si se desea completar el hábito
+            self.habilitar_botones()
     
     def mostrar_mensaje(self, mensaje, estado):
         color = "green" if estado == "ok" else "red"
@@ -95,7 +101,7 @@ class InterfazHabitos:
         #Obtenemos el indice del habito seleccionado en el listbox
         indice = self.listbox.curselection() # Formato tupla: (indice,)
         if not indice:
-            return #Evita error si no hay selecciónç
+            return #Evita error si no hay selección
         
         mensaje, estado = self.gestor.completar_habito(indice[0])
         self.mostrar_mensaje(mensaje, estado)
@@ -103,7 +109,7 @@ class InterfazHabitos:
         if estado == "ok":
             self.actualizar_ListBox()
             self.listbox.selection_clear(0,tk.END) #Quitar selección del listbox
-            self.btnCompletar.config(state= tk.DISABLED) #Deshabilitar botón "Completar hábito"
+            self.habilitar_botones()
     
     def eliminar_habito_gui(self):
         #Obtenemos el indice del hábito seleccionado a eliminar
@@ -119,14 +125,46 @@ class InterfazHabitos:
             self.listbox.select_clear(0,tk.END)
             self.habilitar_botones()
 
+    def deshacer_completado_gui(self):
+        #Obtenemos el indice del hábito seleccionado
+        indice = self.listbox.curselection()
+
+        if not indice:
+            return #Evita error si no hay selección
+        
+        mensaje, estado = self.gestor.deshacer_habito(indice[0])
+        self.mostrar_mensaje(mensaje, estado)
+
+        if(estado == "ok"):
+            self.actualizar_ListBox()
+            self.listbox.selection_clear(0,tk.END) #Quitar selección del inbox
+            self.habilitar_botones()
+
         
     
     def habilitar_botones(self):
-        if self.listbox.curselection():
-            self.btnCompletar.config(state= tk.NORMAL)
+        indice = self.listbox.curselection() #Formato tupla (2, )
+                
+        #Botón Eliminar
+        if indice:
             self.btnEliminar.config(state= tk.NORMAL)
+
+            #Obtenemos el texto del habito seleccionado
+            texto = self.listbox.get(indice[0])
+            #Filtramos si esta o no completado
+            completado = texto[-3:]
+
+            #Botón Completar y deshacer
+            if completado == "[ ]":
+                self.btnCompletar.config(state= tk.NORMAL)
+                self.btnDeshacer.config(state= tk.DISABLED)
+            else:
+                self.btnCompletar.config(state= tk.DISABLED)
+                self.btnDeshacer.config(state= tk.NORMAL) 
+
         else:
-            self.btnCompletar.config(state= tk.DISABLED)
             self.btnEliminar.config(state= tk.DISABLED)
-    
+            self.btnCompletar.config(state= tk.DISABLED)
+            self.btnDeshacer.config(state= tk.DISABLED)
+
 

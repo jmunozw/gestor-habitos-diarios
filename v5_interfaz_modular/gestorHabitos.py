@@ -44,6 +44,14 @@ class GestorDeHabitos:
         self.guardar_habitos()
         return f"Hábito '{self.habitos[indice]['nombre']}' marcado como completado.","ok"
     
+    def deshacer_habito(self, indice):
+        if not self.habitos:
+            return "Aún no has añadido ningún hábito.", "error"
+    
+        self.habitos[indice]["completado"] = False
+        self.guardar_habitos()
+        return f"Hábito '{self.habitos[indice]['nombre']}' marcado como no completado.","ok"
+    
     def eliminar_habito(self, indice):
         if not self.habitos:
             return "Aún no has añadido ningún hábito.", "error"

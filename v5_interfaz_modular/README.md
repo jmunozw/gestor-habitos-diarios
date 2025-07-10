@@ -9,6 +9,7 @@ En esta fase del proyecto **Gestor de Hábitos Diarios**, se mejora la estructur
 - Modularizar la interfaz gráfica dividiendo su construcción en zonas específicas.
 - Preparar la clase `InterfazHabitos` para futuras ampliaciones.
 - Añadir feedback visual mediante mensajes temporales.
+- Añadir funcionalidades prácticas desde la interfaz: completar, eliminar y deshacer hábitos.
 - Aplicar buenas prácticas de legibilidad y mantenimiento.
 
 ---
@@ -29,15 +30,10 @@ En esta fase del proyecto **Gestor de Hábitos Diarios**, se mejora la estructur
 - Scroll automático al final del `Listbox` al añadir un nuevo hábito.
 - Selección automática del nuevo hábito tras añadirlo.
 - Botón "Completar hábito" se desactiva automáticamente tras completarlo.
-- Prevención de errores si se pulsa "Completar hábito" sin selección previa.
+- Botón "Eliminar hábito" habilitado/deshabilitado según selección.
+- Botón "Deshacer completado" activado solo si el hábito está marcado como completado.
+- Prevención de errores si se pulsa sin selección previa.
 - Código limpio, visualmente estructurado y reutilizable.
-- Botón "Eliminar hábito" añadido junto a los botones de acción.
-- Habilitación automática del botón al seleccionar un hábito.
-- Validación segura al intentar eliminar sin selección previa.
-- Mensaje de confirmación tras eliminación exitosa.
-- Actualización automática del listado tras eliminar un hábito.
-
-
 
 ---
 
