@@ -60,3 +60,33 @@ class GestorDeHabitos:
         del self.habitos[indice]
         self.guardar_habitos()
         return f"Hábito {habito} eliminado correctamente.", "ok"
+    
+    def subir_habito(self, indice):
+        if not self.habitos:
+            return "Aún no has añadido ningún hábito.", "error"
+        
+        habito = self.habitos[indice]["nombre"]
+
+        habitoBaja = self.habitos[indice-1]
+        habitoSube = self.habitos[indice]
+        self.habitos[indice] = habitoBaja
+        self.habitos[indice-1] = habitoSube
+        self.guardar_habitos()
+
+        return f"Hábito {habito} subido correctamente", "ok"
+    
+    def bajar_habito(self, indice):
+        
+        if not self.habitos:
+            return "Aún no has añadido ningún hábito.", "error"
+        
+        habito = self.habitos[indice]["nombre"]
+
+        habitoBaja = self.habitos[indice]
+        habitoSube = self.habitos[indice+1]
+        self.habitos[indice] = habitoSube
+        self.habitos[indice+1] = habitoBaja
+        self.guardar_habitos()
+
+        return f"Hábito {habito} bajado correctamente", "ok"
+

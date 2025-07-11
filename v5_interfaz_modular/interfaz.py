@@ -51,6 +51,14 @@ class InterfazHabitos:
         self.btnDeshacer = tk.Button(self.root, text="Deshacer completado", state=tk.DISABLED, command= self.deshacer_completado_gui)
         self.btnDeshacer.pack(side= tk.TOP, pady=5)
 
+        #Creando el botón Subir hábito
+        self.btnSubir = tk.Button(self.root, text= "↑ Subir", state= tk.DISABLED, command= self.subir_habito_gui)
+        self.btnSubir.pack(side= tk.TOP, pady=2)
+
+        #Creando el botón Bajar hábito
+        self.btnBajar = tk.Button(self.root, text= "↓ Bajar", state= tk.DISABLED, command= self.bajar_habito_gui)
+        self.btnBajar.pack(side= tk.TOP, pady=2)
+
 
         #Creando label de mensaje
         self.lblMensaje = tk.Label(self.root, text= "", fg="green")
@@ -139,22 +147,65 @@ class InterfazHabitos:
             self.actualizar_ListBox()
             self.listbox.selection_clear(0,tk.END) #Quitar selección del inbox
             self.habilitar_botones()
+    
+    def subir_habito_gui(self):
+        #Capturamos el índice del hábito seleccionado
+        indice = self.listbox.curselection()[0]
+        
+        mensaje, estado = self.gestor.subir_habito(indice)
+        self.mostrar_mensaje(mensaje, estado)
+
+        if estado == "ok":
+            self.actualizar_ListBox()
+            self.listbox.select_clear(0,tk.END)
+            self.habilitar_botones()
+
+
+    def bajar_habito_gui(self):
+        #Capturamos el índice del hábito seleccionado
+        indice = self.listbox.curselection()[0]
+        
+        mensaje, estado = self.gestor.bajar_habito(indice)
+        self.mostrar_mensaje(mensaje, estado)
+
+        if estado == "ok":
+            self.actualizar_ListBox()
+            self.listbox.select_clear(0,tk.END)
+            self.habilitar_botones()
 
         
     
     def habilitar_botones(self):
-        indice = self.listbox.curselection() #Formato tupla (2, )
-                
-        #Botón Eliminar
+
+        #Comprobamos el número de hábitos guardados en el sistema
+        longitud = len(self.gestor.habitos)
+        #Capturamos el hábito seleccionado
+        indice = self.listbox.curselection() #Formato tupla (2, )   
+        
         if indice:
+
+            #Botón Subir y bajar
+            if longitud > 1:
+                if indice[0] == 0: #Primer elemento de la lista
+                    self.btnBajar.config(state= tk.NORMAL)
+                    self.btnSubir.config(state= tk.DISABLED)
+                elif indice[0] == longitud - 1: #Último elemento de la lista
+                    self.btnSubir.config(state= tk.NORMAL)
+                    self.btnBajar.config(state= tk.DISABLED)
+                else:
+                    self.btnSubir.config(state= tk.NORMAL)
+                    self.btnBajar.config(state= tk.NORMAL)
+
+            #Botón eliminar
             self.btnEliminar.config(state= tk.NORMAL)
+
+            #Botón Completar y deshacer
 
             #Obtenemos el texto del habito seleccionado
             texto = self.listbox.get(indice[0])
             #Filtramos si esta o no completado
             completado = texto[-3:]
 
-            #Botón Completar y deshacer
             if completado == "[ ]":
                 self.btnCompletar.config(state= tk.NORMAL)
                 self.btnDeshacer.config(state= tk.DISABLED)
@@ -166,5 +217,7 @@ class InterfazHabitos:
             self.btnEliminar.config(state= tk.DISABLED)
             self.btnCompletar.config(state= tk.DISABLED)
             self.btnDeshacer.config(state= tk.DISABLED)
+            self.btnSubir.config(state= tk.DISABLED)
+            self.btnBajar.config(state= tk.DISABLED)
 
 

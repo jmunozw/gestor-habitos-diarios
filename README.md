@@ -49,8 +49,8 @@ Su objetivo es construir una herramienta funcional, profesional y mantenible, pa
 - Etiqueta (`Label`) para mensajes temporales con color.  
 - Scroll automático y selección del nuevo hábito.
 - Botones que se activan o desactivan dinámicamente.
-- Eliminar hábitos desde la GUI.
-- Opción de deshacer completado desde la GUI.
+- Eliminar y deshacer hábitos desde la interfaz.  
+- Reordenar hábitos con botones "↑" y "↓".
 
 ---
 
@@ -68,8 +68,8 @@ Este proyecto se desarrolla en fases evolutivas, cada una con un enfoque progres
 | Fase 5 | Zona 2   | Mejoras UX: scroll automático, feedback visual, selección, validaciones.    | ✅ Finalizada |
 | Fase 5 | Zona 3   | Funcionalidad para eliminar hábitos desde la GUI.                           | ✅ Finalizada |
 | Fase 5 | Zona 4   | Opción para desmarcar hábitos completados (estado "incompleto").            | ✅ Finalizada |
-| Fase 5 | Zona 5   | Reordenar hábitos visualmente (drag & drop o botones).                      | 🔜 Pendiente  |
-| Fase 6 | -        | Rediseño visual completo y mejoras avanzadas de persistencia.               | 🕓 Futuro     |
+| Fase 5 | Zona 5   | Reordenar hábitos visualmente (botones).                                    | ✅ Finalizada |
+| Fase 6 | -        | Rediseño visual completo y mejoras avanzadas de persistencia.               | 🕓 Futuro  |
 | Fase 7 | -        | Exportación, estadísticas, integración con calendario, sincronización.      | 🕓 Futuro     |
 | Fase 8 | -        | Gamificación: niveles, XP, hábitos estrella, recompensas simbólicas.        | 🕓 Futuro     |
 

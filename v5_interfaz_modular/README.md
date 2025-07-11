@@ -32,6 +32,8 @@ En esta fase del proyecto **Gestor de Hábitos Diarios**, se mejora la estructur
 - Botón "Completar hábito" se desactiva automáticamente tras completarlo.
 - Botón "Eliminar hábito" habilitado/deshabilitado según selección.
 - Botón "Deshacer completado" activado solo si el hábito está marcado como completado.
+- Botones "Subir" y "Bajar" para reordenar hábitos desde la interfaz.
+- Lógica visual de activación/desactivación de botones en función del contexto.
 - Prevención de errores si se pulsa sin selección previa.
 - Código limpio, visualmente estructurado y reutilizable.
 
