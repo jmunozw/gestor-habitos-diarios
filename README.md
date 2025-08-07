@@ -11,6 +11,7 @@ Su objetivo es construir una herramienta funcional, profesional y mantenible, pa
 - Marcar hábitos como completados  
 - Persistencia de datos entre sesiones  
 - Aprender buenas prácticas de programación evolutiva  
+- Diseñar una interfaz gráfica modular y presentable para portafolio
 
 ---
 
@@ -23,40 +24,43 @@ Su objetivo es construir una herramienta funcional, profesional y mantenible, pa
 | Fase 3 | Versión con clases (OOP), más modular y escalable            | `/v3_clases`           |
 | Fase 4 | Interfaz gráfica básica usando tkinter                       | `/v4_gui_tkinter`      |
 | Fase 5 | Interfaz modular con mejoras internas y feedback visual      | `/v5_interfaz_modular` |
+| Fase 6 | Rediseño profesional, pulido visual y presentación final     | `/v6_rediseño_profesional` |
 
 ---
 
-### 🧠 Detalle por fases
+## 🧠 Detalle por fases
 
-#### ✅ Fase 1 – Estructura mínima del proyecto
-- Lógica funcional sin separación de responsabilidades.  
-- Lectura/escritura de hábitos en JSON en el mismo archivo.
+#### ✅ Fase 1 – Estructura mínima
+- Toda la lógica en un solo archivo.
+- Lectura/escritura JSON básica.
 
-#### ✅ Fase 2 – Separación por funciones
-- Código más limpio y organizado.  
-- Persistencia separada en funciones reutilizables.
+#### ✅ Fase 2 – Modularización por funciones
+- Código más limpio y legible.
+- Reutilización de funciones.
 
 #### ✅ Fase 3 – Orientación a objetos
-- Uso de clases para encapsular la lógica (`GestorDeHabitos`).  
-- Proyecto preparado para escalar.
+- Encapsulamiento de la lógica.
+- Clase `GestorDeHabitos`.
 
-#### ✅ Fase 4 – Interfaz gráfica básica con tkinter
-- Primer GUI con `Entry`, `Button` y `Listbox`.  
-- Posibilidad de añadir y completar hábitos desde la interfaz.
+#### ✅ Fase 4 – GUI con tkinter
+- Entrada, botón y lista de hábitos.
+- Añadir y completar hábitos.
 
-#### ✅ Fase 5 – Interfaz modular y visual
-- Métodos separados por zonas: entrada, lista y botones.  
-- Etiqueta (`Label`) para mensajes temporales con color.  
-- Scroll automático y selección del nuevo hábito.
-- Botones que se activan o desactivan dinámicamente.
-- Eliminar y deshacer hábitos desde la interfaz.  
-- Reordenar hábitos con botones "↑" y "↓".
+#### ✅ Fase 5 – Interfaz modular
+- Separación de zonas (entrada, lista, botones).
+- Feedback visual, scroll automático, selección dinámica.
+- Eliminar, deshacer y reordenar hábitos.
+
+#### ✅ Fase 6 – Rediseño profesional
+- Código dividido en módulos (`main`, `gestor`, `interfaz`).
+- Diseño más ordenado, visual y funcional.
+- Persistencia automática.
+- Botón reset con popup de confirmación.
+- Preparado como proyecto de portafolio.
 
 ---
 
-## 🗺️ Hoja de ruta del proyecto
-
-Este proyecto se desarrolla en fases evolutivas, cada una con un enfoque progresivo de aprendizaje y profesionalización.
+## 🗺️ Hoja de ruta
 
 | Fase   | Zona     | Descripción                                                                 | Estado       |
 |--------|----------|-----------------------------------------------------------------------------|--------------|
@@ -69,15 +73,17 @@ Este proyecto se desarrolla en fases evolutivas, cada una con un enfoque progres
 | Fase 5 | Zona 3   | Funcionalidad para eliminar hábitos desde la GUI.                           | ✅ Finalizada |
 | Fase 5 | Zona 4   | Opción para desmarcar hábitos completados (estado "incompleto").            | ✅ Finalizada |
 | Fase 5 | Zona 5   | Reordenar hábitos visualmente (botones).                                    | ✅ Finalizada |
-| Fase 6 | -        | Rediseño visual completo y mejoras avanzadas de persistencia.               | 🕓 Futuro  |
-| Fase 7 | -        | Exportación, estadísticas, integración con calendario, sincronización.      | 🕓 Futuro     |
-| Fase 8 | -        | Gamificación: niveles, XP, hábitos estrella, recompensas simbólicas.        | 🕓 Futuro     |
+| Fase 6 | -        | Rediseño visual, modularización, botones mejorados, persistencia y popup.   | ✅ Finalizada |
+| Fase 7 | -        | Exportar hábitos, estadísticas, integración con calendario.                 | 🕓 Futuro     |
+| Fase 8 | -        | Gamificación: niveles, XP, recompensas simbólicas.                          | 🕓 Futuro     |
 
 ---
 
 ## ▶️ Cómo ejecutar
 
 ```bash
+# Ejemplos por carpeta:
+
 cd v1_linea_a_linea
 python habitos.py
 
@@ -92,6 +98,10 @@ python main.py
 
 cd v5_interfaz_modular
 python main.py
+
+cd v6_rediseño_profesional
+python main.py
+
 
 ```
 
